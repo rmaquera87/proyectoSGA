@@ -67,6 +67,20 @@
                         <input type="text" class="form-control" name="direccion" placeholder="" value="<%= a.getDireccion()%>">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">EMAIL</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="email" placeholder="" value="<%= a.getEmail()%>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">PAIS</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="pais" placeholder="" value="<%= a.getPais()%>">
+                    </div>
+                </div>
                     <div class="form-group" style="text-align: center;">
                     <button type="submit" value="guardar" class="btn btn-primary navbar-btn">Actualizar proveedor</button>
                 </div>

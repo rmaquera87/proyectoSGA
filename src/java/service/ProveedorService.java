@@ -22,17 +22,23 @@ import util.ViewResolve;
 public class ProveedorService {
     public void registra(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Se obtiene los parametros
+        int tipodoc = Integer.parseInt(request.getParameter("tipodoc"));
         String ruc = request.getParameter("ruc");
         String razonSocial = request.getParameter("razonSocial");
         String telefono = request.getParameter("telefono");
         String direccion = request.getParameter("direccion");
+        String email = request.getParameter("email");
+        String pais = request.getParameter("pais");
         
         //Se crea el objeto proveedor
         Proveedor a = new Proveedor();
+        a.setIdTipoDoc(tipodoc);
         a.setRuc(ruc);
         a.setRazonSocial(razonSocial);
         a.setTelefono(telefono);
         a.setDireccion(direccion);
+        a.setEmail(email);
+        a.setPais(pais);
 
         //Se inserta a la BD el proveedor
         ProveedorModel model = new ProveedorModel();
@@ -58,8 +64,10 @@ public class ProveedorService {
         //Se obtiene los parametros
         String ruc = request.getParameter("ruc");
         String razonSocial = request.getParameter("razonSocial");
-        String telefono = request.getParameter("telefono");
         String direccion = request.getParameter("direccion");
+        String telefono = request.getParameter("telefono");
+        String email = request.getParameter("email");
+        String pais = request.getParameter("pais");
         int id = Integer.parseInt(request.getParameter("id"));
         
         //Se crea el objeto proveedor
@@ -69,6 +77,8 @@ public class ProveedorService {
         a.setRazonSocial(razonSocial);
         a.setTelefono(telefono);
         a.setDireccion(direccion);
+        a.setEmail(email);
+        a.setPais(pais);
         
         //Se inserta a la BD el proveedor
         ProveedorModel model = new ProveedorModel();
@@ -107,14 +117,18 @@ public class ProveedorService {
     public void ubica(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String ruc = request.getParameter("ruc");
         String razonSocial = request.getParameter("razonSocial");
-        String telefono = request.getParameter("telefono");
         String direccion = request.getParameter("direccion");
+        String telefono = request.getParameter("telefono");
+        String email = request.getParameter("email");
+        String pais = request.getParameter("pais");
         
         Proveedor p = new Proveedor();
         p.setRuc(ruc);
         p.setRazonSocial(razonSocial);
         p.setTelefono(telefono);
         p.setDireccion(direccion);
+        p.setEmail(email);
+        p.setPais(pais);
         ProveedorModel model = new ProveedorModel();
         List<Proveedor> data = model.listaUbicaProveedor(p);
         
