@@ -191,7 +191,7 @@
 
                         <li class="active treeview">
                             <a href="#">
-                                <i class="fa fa-edit"></i> <span>Logística</span>
+                                <i class="fa fa-edit"></i> <span>Tablas Maestras</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
@@ -201,7 +201,28 @@
                                 <li><a href="proveedor"><i class="fa fa-circle-o"></i> Proveedor</a></li>
 
                                 <li><a href="almacen"><i class="fa fa-circle-o"></i> Almacen</a></li>
-
+                                <li><a href="marca"><i class="fa fa-circle-o"></i> Marca</a></li>
+                                <li><a href="unimedida"><i class="fa fa-circle-o"></i> Unidad de Medida</a></li>
+                            </ul>
+                            <a href="#">
+                                <i class="fa fa-edit"></i> <span>Transacciones</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                             <ul class="treeview-menu">
+                                <li><a href=""><i class="fa fa-circle-o"></i> Partes de Ingreso</a></li>
+                                <li><a href=""><i class="fa fa-circle-o"></i> Partes de Salida</a></li>
+                            </ul>
+                            <a href="#">
+                                <i class="fa fa-edit"></i> <span>Consultas</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span> 
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href=""><i class="fa fa-circle-o"></i> Consulta de Stock</a></li>
+                                <li><a href=""><i class="fa fa-circle-o"></i> Movimientos</a></li>
                             </ul>
                         </li>
 
@@ -229,7 +250,7 @@
                 <div class="pull-right hidden-xs">
                     <b>Version</b> 1.0.0
                 </div>
-                <strong>Copyright &copy; 2019 <a href="#">Grupo 5</a>.</strong> All rights
+                <strong>Copyright &copy; 2020 <a href="#">Grupo Curso Integrador</a>.</strong> All rights
                 reserved.
             </footer>
 

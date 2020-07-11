@@ -15,7 +15,8 @@ public class MysqlDBConexion
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MysqlDBConexion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gestion_almacen","root","");
+//        conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/bdsga","root","");
+        conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gestion_almacenes","root","");
         return conn;
     }		
 }
