@@ -28,14 +28,15 @@ public class ProveedorModel {
             PreparedStatement pstm;
             Connection conn;
             conn = MysqlDBConexion.getConexion();
-            String sql = "insert into proveedores values(3,1,?,?,?,?,?,?)";
+            String sql = "insert into proveedores values(null,?,?,?,?,?,?,?)";
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, obj.getNrodoc());
-            pstm.setString(2, obj.getRazsoc());
-            pstm.setString(3, obj.getTelefono());
+            pstm.setInt(1, obj.getIdTipoDoc());
+            pstm.setString(2, obj.getRuc());
+            pstm.setString(3, obj.getRazonSocial());
             pstm.setString(4, obj.getDireccion());
-            pstm.setString(5, obj.getEmail());
-            pstm.setString(6, obj.getPais());
+            pstm.setString(5, obj.getTelefono());
+            pstm.setString(6, obj.getEmail());
+            pstm.setString(7, obj.getPais());
             salida = pstm.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProveedorModel.class.getName()).log(Level.SEVERE, null, ex);
@@ -59,11 +60,11 @@ public class ProveedorModel {
             while(rs.next()){
                 obj = new Proveedor();
                 obj.setIdProveedor(rs.getInt("id_proveedor"));
-                obj.setNrodoc(rs.getString("pro_nrodoc"));
-                obj.setRazsoc(rs.getString("pro_razsoc"));
-                obj.setTelefono(rs.getString("pro_telefono"));
+                obj.setIdTipoDoc(rs.getInt("id_tipodoc"));
+                obj.setRuc(rs.getString("pro_nrodoc"));
+                obj.setRazonSocial(rs.getString("pro_razsoc"));
                 obj.setDireccion(rs.getString("pro_direccion"));
-
+                obj.setTelefono(rs.getString("pro_telefono"));
                 obj.setEmail(rs.getString("pro_email"));
                 obj.setPais(rs.getString("pro_pais"));
                 data.add(obj);
@@ -82,12 +83,12 @@ public class ProveedorModel {
             Connection conn;
             PreparedStatement pstm;
             conn = MysqlDBConexion.getConexion();
-            String sql = "update proveedores set pro_nrodoc=?,pro_razsoc=?, pro_direccion=?, pro_telefono=? ,pro_email=?, pro_pais=? where id_proveedor=?";
+            String sql = "update proveedores set pro_nrodoc=?,pro_razsoc=?, pro_direccion=?,pro_telefono=?, pro_email=?, pro_pais=? where id_proveedor=?";
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, obj.getNrodoc());
-            pstm.setString(2, obj.getRazsoc());
-            pstm.setString(3, obj.getTelefono());
-            pstm.setString(4, obj.getDireccion());
+            pstm.setString(1, obj.getRuc());
+            pstm.setString(2, obj.getRazonSocial());
+            pstm.setString(3, obj.getDireccion());
+            pstm.setString(4, obj.getTelefono());
             pstm.setString(5, obj.getEmail());
             pstm.setString(6, obj.getPais());
             pstm.setInt(7, obj.getIdProveedor());
@@ -114,8 +115,9 @@ public class ProveedorModel {
             if (rs.next()) {
                 obj = new Proveedor();
                 obj.setIdProveedor(rs.getInt("id_proveedor"));
-                obj.setNrodoc(rs.getString("pro_nrodoc"));
-                obj.setRazsoc(rs.getString("pro_razsoc"));
+                obj.setIdTipoDoc(rs.getInt("id_tipodoc"));
+                obj.setRuc(rs.getString("pro_nrodoc"));
+                obj.setRazonSocial(rs.getString("pro_razsoc"));
                 obj.setTelefono(rs.getString("pro_telefono"));
                 obj.setDireccion(rs.getString("pro_direccion"));
                 obj.setEmail(rs.getString("pro_email"));
@@ -151,7 +153,7 @@ public class ProveedorModel {
             Connection conn;
             conn = MysqlDBConexion.getConexion();
             ResultSet rs;
-            String sql = "select * from proveedores  where pro_nrodoc like '%" + p.getNrodoc()+ "%' and pro_razsoc like '%" + p.getRazsoc()+ "%' and pro_telefono like '%" + p.getTelefono()+ "%' and pro_direccion like '%" + p.getDireccion()+ "%' and pro_email like '%" + p.getEmail()+ "%' and pro_pais like '%" + p.getPais()+ "%'";
+            String sql = "select * from proveedores  where pro_nrodoc like '%" + p.getRuc() + "%' and pro_razsoc like '%" + p.getRazonSocial()+ "%' and pro_telefono like '%" + p.getTelefono()+ "%' and pro_direccion like '%" + p.getDireccion()+ "%'";
             pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery();
             
@@ -159,8 +161,9 @@ public class ProveedorModel {
             while(rs.next()){
                 obj = new Proveedor();
                 obj.setIdProveedor(rs.getInt("id_proveedor"));
-                obj.setNrodoc(rs.getString("pro_nrodoc"));
-                obj.setRazsoc(rs.getString("pro_razsoc"));
+                obj.setIdTipoDoc(rs.getInt("id_tipodoc"));
+                obj.setRuc(rs.getString("pro_nrodoc"));
+                obj.setRazonSocial(rs.getString("pro_razsoc"));
                 obj.setTelefono(rs.getString("pro_telefono"));
                 obj.setDireccion(rs.getString("pro_direccion"));
                 obj.setEmail(rs.getString("pro_email"));
