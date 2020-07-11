@@ -33,21 +33,21 @@
         <table class="table table-bordered table-hover">
             
             <tr class="grilla_cabecera">
-                <th>Id</th><th>Tipo Doc.</th>><th>Nro Documento</th><th>Razón social</th><th>Teléfono</th><th>Dirección</th><th>Email</th><th>Pais</th><th>Eliminar</th><th>Editar</th>
+                <th>Id</th><th>Ruc</th><th>Razón social</th><th>Teléfono</th><th>Dirección</th><th>Email</th><th>Pais</th><th>Eliminar</th><th>Editar</th>
             </tr>
             
             <% 
                 List<Proveedor> data = (List<Proveedor>)request.getAttribute("data");
+                
                 if (data!=null) {
                         for(Proveedor x: data){
                         %>
-                       <tr class="grilla_campo">
-                          <td><%= x.getIdProveedor()%></td>
-                            <td><%= x.getIdTipoDoc()%></td>
-                            <td><%= x.getRuc()%></td>
-                            <td><%= x.getRazonSocial()%></td>
+                        <tr class="grilla_campo">
+                            <td><%= x.getIdProveedor()%></td>
+                            <td><%= x.getNrodoc()%></td>
+                            <td><%= x.getRazsoc()%></td>
                             <td><%= x.getTelefono()%></td>
-                            <td><%= x.getDireccion()%></td> 
+                            <td><%= x.getDireccion()%></td>
                             <td><%= x.getEmail()%></td>
                             <td><%= x.getPais()%></td>
                             <td>
@@ -59,8 +59,8 @@
                                 <a href="proveedor?metodo=busca&id=<%= x.getIdProveedor()%>">
                                     <img alt="Actualiza" src="images/Edit.gif">
                                 </a>
-                            </td>   
-                        </tr>   
+                            </td>
+                        </tr>
                         <%
                         }
                     }
@@ -86,13 +86,7 @@
               <form action="proveedor" method="post" class="form-horizontal">
                 <input type="hidden" name="metodo" value="registra">
                 <div class="box-body">
-                     <div class="form-group">
-                        <label class="col-sm-2 control-label">TIPO DOCUMENTO</label>
 
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="tipodoc" placeholder="Inserta el Tipo de Doc." required>
-                        </div>
-                    </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">RUC</label>
 
@@ -125,16 +119,16 @@
                         <label class="col-sm-2 control-label">EMAIL</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="email" placeholder="Inserta email" required>
+                            <input type="text" class="form-control" name="email" placeholder="Insertr email" required>
                         </div>
-                    </div> 
+                    </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">PAIS</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="pais" placeholder="Inserta el pais" required>
+                            <input type="text" class="form-control" name="pais" placeholder="Insertar pais" required>
                         </div>
-                    </div> 
+                    </div>
                     <div class="modal-footer">
                       <button type="submit" class="btn btn-success">Guardar</button>
                       <button type="reset" class="btn btn-warning">Limpiar</button>
@@ -188,7 +182,21 @@
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="direccion" placeholder="Ingresa una letra">
                         </div>
-                    </div>          
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">EMAIL</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="email" placeholder="Insertr email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">PAIS</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="pais" placeholder="Insertar pais" required>
+                        </div>
+                    </div>
                     <div class="modal-footer">
                       <button type="submit" class="btn btn-success">Buscar</button>
                       <button type="reset" class="btn btn-warning">Limpiar</button>

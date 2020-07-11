@@ -83,14 +83,14 @@
                 <input type="hidden" name="metodo" value="registra">
                 <div class="box-body">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Descripcion</label>
+                        <label class="col-sm-2 control-label">Descripción</label>
 
                         <div class="col-sm-10">
                             <input type="text" class="form-control"  name="descripcion" placeholder="Inserta descripcion" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Direccion</label>
+                        <label class="col-sm-2 control-label">Dirección</label>
 
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="direccion" placeholder="Inserta la razon social" required>

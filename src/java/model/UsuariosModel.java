@@ -27,7 +27,7 @@ public class UsuariosModel {
             Connection conn;
             conn = MysqlDBConexion.getConexion();
             String sql = "select id_usuario, usu_username, usu_nombre, usu_apellidos, id_perfil, usu_estado "
-                    + "from gestion_almacen.usuarios where usu_username=? and usu_password=?";
+                    + "from usuarios where usu_username=? and usu_password=?";
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, u.getUsuUsername());
             pstm.setString(2, u.getUsuPassword());

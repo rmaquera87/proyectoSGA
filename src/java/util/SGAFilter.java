@@ -62,7 +62,7 @@ public class SGAFilter implements Filter {
     
                 if(Pattern.matches("^"+request.getContextPath() + listaURI.get(a), request.getRequestURI())){
                     permitirURI=true;
-                    System.out.println("permitir="+listaURI.get(a));
+                    //System.out.println("permitir="+listaURI.get(a));
                     break;
                 }else{
                     //System.out.println("no permitir="+listaURI.get(a));
