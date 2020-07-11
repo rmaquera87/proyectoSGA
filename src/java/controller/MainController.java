@@ -18,7 +18,7 @@ import service.MainService;
  *
  * @author MELANY
  */
-@WebServlet(name = "main", urlPatterns = {""})
+@WebServlet(name = "main", urlPatterns = {"/main"})
 public class MainController extends HttpServlet {
 
     /**
@@ -87,9 +87,13 @@ public class MainController extends HttpServlet {
     }// </editor-fold>
 
         protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+            
+            String metodo = request.getParameter("metodo");
             MainService mainService=new MainService();
-          mainService.index(request, response);
-          
+            if (metodo==null) {
+            mainService.index(request, response);
+            }else if (metodo.equals("cerrarSesion")) {
+                mainService.cerrarSesion(request, response);
+            }
         }
 }

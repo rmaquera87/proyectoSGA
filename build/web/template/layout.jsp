@@ -1,4 +1,6 @@
+<%@page import="entity.Usuarios"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% Usuarios dataMain = (Usuarios)request.getAttribute("dataMain");%>
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
@@ -85,7 +87,7 @@
         <!-- AdminLTE for demo purposes -->
         <script src="lib/plantilla/dist/js/demo.js"></script>
 
-
+        <script src="js/sga.js"></script>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
@@ -112,7 +114,7 @@
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="lib/plantilla/dist/img/user1.jpg" class="user-image" alt="User Image">
-                                    <span class="hidden-xs" th:text="${usuario}">Jhon Doe</span>
+                                    <span class="hidden-xs" ><%= ((dataMain!= null)?dataMain.getUsuUsername():"") %></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
@@ -120,12 +122,12 @@
                                         <img src="lib/plantilla/dist/img/user1.jpg" class="img-circle" alt="User Image">
 
                                         <p>
-                                            Jhon Doe - Analista programador
-                                            <small>Miembro desde JUN. 2019</small>
+                                            <%= ((dataMain!= null)?dataMain.getUsuNombre()+" "+dataMain.getUsuApellidos():"") %>
+                                            <small></small>
                                         </p>
                                     </li>
                                     <!-- Menu Body -->
-                                    <li class="user-body">
+                                    <!--<li class="user-body">
                                         <div class="row">
                                             <div class="col-xs-4 text-center">
                                                 <a href="#">Seguidores</a>
@@ -137,15 +139,15 @@
                                                 <a href="#">Amigos</a>
                                             </div>
                                         </div>
-                                        <!-- /.row -->
-                                    </li>
+                                        
+                                    </li>-->
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                                            <!--<a href="#" class="btn btn-default btn-flat">Perfil</a>-->
                                         </div>
                                         <div class="pull-right">
-                                            <a href="#" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                                            <a id="lnkCerrarSesion" href="main?metodo=cerrarSesion" class="btn btn-default btn-flat">Cerrar Sesión</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -168,7 +170,7 @@
                             <img src="lib/plantilla/dist/img/user1.jpg" class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
-                            <p th:text="${usuario}">Jhon Doe</p>
+                            <p><%= ((dataMain!= null)?dataMain.getUsuUsername():"") %></p>
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>

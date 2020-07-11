@@ -5,10 +5,12 @@
  */
 package util;
 
+import entity.Usuarios;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -16,7 +18,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ViewResolve {
     public static void showMain(String nameView, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        
+        HttpSession session= (HttpSession) request.getSession();
+        Usuarios sesionSGA= (Usuarios) session.getAttribute("sesionSGA");
+        request.setAttribute("dataMain", sesionSGA);
+        
         request.setAttribute("view", new String("/view/" + nameView));
         request.getRequestDispatcher("/template/layout.jsp").forward(request, response);
 

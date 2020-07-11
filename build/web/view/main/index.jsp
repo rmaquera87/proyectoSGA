@@ -1,6 +1,6 @@
      <div style="padding:30px">
         <div class="page-header">
-            <h1><a href="https://www.reflejosopticos.com" target="_blank">REFLEJOS OPTICOS E.I.R.L </a><small>Sistema Integrado de Gestión y Almacén</small></h1>
+            <h1>Sistema Integrado de Gestión y Almacén</h1>
         </div>
           <div class="row">
       <div class="col-sm-6 col-md-4">
