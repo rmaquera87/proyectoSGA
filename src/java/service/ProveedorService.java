@@ -32,20 +32,20 @@ public class ProveedorService {
         
         //Se crea el objeto proveedor
         Proveedor a = new Proveedor();
-        a.setNrodoc(ruc);
-        a.setRazsoc(razonSocial);
+        a.setIdTipoDoc(tipodoc);
+        a.setRuc(ruc);
+        a.setRazonSocial(razonSocial);
         a.setTelefono(telefono);
         a.setDireccion(direccion);
         a.setEmail(email);
         a.setPais(pais);
-        
+
         //Se inserta a la BD el proveedor
         ProveedorModel model = new ProveedorModel();
         model.insertarProveedor(a);
         
         //Se lista todos los proveedores
-        lista(request, response);
-        
+        lista(request, response);     
     }
     
     public void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -63,9 +63,8 @@ public class ProveedorService {
         //Se obtiene los parametros
         String ruc = request.getParameter("ruc");
         String razonSocial = request.getParameter("razonSocial");
-        String telefono = request.getParameter("telefono");
         String direccion = request.getParameter("direccion");
-
+        String telefono = request.getParameter("telefono");
         String email = request.getParameter("email");
         String pais = request.getParameter("pais");
         int id = Integer.parseInt(request.getParameter("id"));
@@ -73,8 +72,8 @@ public class ProveedorService {
         //Se crea el objeto proveedor
         Proveedor a = new Proveedor();
         a.setIdProveedor(id);
-        a.setNrodoc(ruc);
-        a.setRazsoc(razonSocial);
+        a.setRuc(ruc);
+        a.setRazonSocial(razonSocial);
         a.setTelefono(telefono);
         a.setDireccion(direccion);
         a.setEmail(email);
@@ -117,20 +116,18 @@ public class ProveedorService {
     public void ubica(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String ruc = request.getParameter("ruc");
         String razonSocial = request.getParameter("razonSocial");
-        String telefono = request.getParameter("telefono");
         String direccion = request.getParameter("direccion");
-
+        String telefono = request.getParameter("telefono");
         String email = request.getParameter("email");
         String pais = request.getParameter("pais");
         
         Proveedor p = new Proveedor();
-        p.setNrodoc(ruc);
-        p.setRazsoc(razonSocial);
+        p.setRuc(ruc);
+        p.setRazonSocial(razonSocial);
         p.setTelefono(telefono);
         p.setDireccion(direccion);
         p.setEmail(email);
         p.setPais(pais);
-        
         ProveedorModel model = new ProveedorModel();
         List<Proveedor> data = model.listaUbicaProveedor(p);
         
