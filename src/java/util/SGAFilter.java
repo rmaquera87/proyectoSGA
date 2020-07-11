@@ -54,12 +54,7 @@ public class SGAFilter implements Filter {
 
         if(!listaURI.isEmpty()){
             for(int a=0;a<listaURI.size();a++){
-                /*if(request.getRequestURI().equals(listaURI.get(a))){
-                    permitirURI=true;
-                     System.out.println("permitir="+listaURI.get(a));
-                    break;
-                }*/
-    
+ 
                 if(Pattern.matches("^"+request.getContextPath() + listaURI.get(a), request.getRequestURI())){
                     permitirURI=true;
                     //System.out.println("permitir="+listaURI.get(a));
