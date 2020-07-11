@@ -16,7 +16,8 @@ public class MysqlDBConexion
             Logger.getLogger(MysqlDBConexion.class.getName()).log(Level.SEVERE, null, ex);
         }
 //        conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/bdsga","root","");
-        conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gestion_almacenes","root","");
+        //conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gestion_almacenes","root","");
+        conn=DriverManager.getConnection("jdbc:mysql://database-1.csgacodug5s4.sa-east-1.rds.amazonaws.com:3306/gestion_almacenes","admin","admin123");
         return conn;
     }		
 }
