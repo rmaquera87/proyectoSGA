@@ -1,7 +1,7 @@
 <%-- 
     Document   : listaAlmacen
-    Created on : 30/06/2019, 06:26:50 PM
-    Author     : Joseph
+    Created on : 07/07/2020, 01:42:28 AM
+    Author     : CMENA
 --%>
 
 <%@page import="entity.Almacen"%>
