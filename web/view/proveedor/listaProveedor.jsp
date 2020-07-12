@@ -1,8 +1,4 @@
-<%-- 
-    Document   : listaAlumno
-    Created on : 29/06/2019, 02:58:58 PM
-    Author     : Jonatan
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
