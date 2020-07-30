@@ -10,6 +10,21 @@ package entity;
  * @author MELANY
  */
 public class Producto {
+    
+    private int producto;
+    private String descripcion;
+    private int undmed;
+    private int marca;
+    private int tipinv;
+    private double costo;
+    private double preciov;
+    private int stkmin;
+    private int stkmax;
+    private double peso;
+    private String estado;
+    
+    
+    /*
     private int idProducto;
     private String descripcion;
     private String forma;
@@ -19,6 +34,7 @@ public class Producto {
     private Integer idClase;
     private String nomClase;
 
+    
     public int getIdProducto() {
         return idProducto;
     }
@@ -82,6 +98,94 @@ public class Producto {
     public void setNomClase(String nomClase) {
         this.nomClase = nomClase;
     }
+*/
 
+    public int getProducto() {
+        return producto;
+    }
+
+    public void setProducto(int producto) {
+        this.producto = producto;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getUndmed() {
+        return undmed;
+    }
+
+    public void setUndmed(int undmed) {
+        this.undmed = undmed;
+    }
+
+    public int getMarca() {
+        return marca;
+    }
+
+    public void setMarca(int marca) {
+        this.marca = marca;
+    }
+
+    public int getTipinv() {
+        return tipinv;
+    }
+
+    public void setTipinv(int tipinv) {
+        this.tipinv = tipinv;
+    }
+
+    public double getCosto() {
+        return costo;
+    }
+
+    public void setCosto(double costo) {
+        this.costo = costo;
+    }
+
+    public double getPreciov() {
+        return preciov;
+    }
+
+    public void setPreciov(double preciov) {
+        this.preciov = preciov;
+    }
+
+    public int getStkmin() {
+        return stkmin;
+    }
+
+    public void setStkmin(int stkmin) {
+        this.stkmin = stkmin;
+    }
+
+    public int getStkmax() {
+        return stkmax;
+    }
+
+    public void setStkmax(int stkmax) {
+        this.stkmax = stkmax;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
     
 }

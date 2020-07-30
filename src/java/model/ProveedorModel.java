@@ -63,7 +63,7 @@ public class ProveedorModel {
                 obj.setRazsoc(rs.getString("pro_razsoc"));
                 obj.setTelefono(rs.getString("pro_telefono"));
                 obj.setDireccion(rs.getString("pro_direccion"));
-
+                obj.setDireccion(rs.getString("pro_telefono"));
                 obj.setEmail(rs.getString("pro_email"));
                 obj.setPais(rs.getString("pro_pais"));
                 data.add(obj);

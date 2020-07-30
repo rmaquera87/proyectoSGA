@@ -7,20 +7,35 @@
 $(document).ready(function () {
     loadListaProducto();
     function loadListaProducto() {
-        var prm = $("#frmBuscarProducto").serialize();
+        //var prb = $("#frmBproducto").serialize();
+        var prm='metodo=lista';
         $.post("producto", prm, function (data) {
 
             $("#divResultado").html(data)
 
 
         });
+        
     }
 
     $("#btnBuscarProd").click(function (e) {
         e.preventDefault();
+        var prm = {
+            "metodo": "load"
+        };
+        $.post("producto", prm, function (data) {
+            $("#modal-buscaprod .modal-body").html(data);
 
-        loadListaProducto();
+        });
+
+        $("#modal-buscaprod").modal('show');
+        
     });
+        $("#modal-buscaprod").on("click", "#btnBuscar", function (e){
+            e.preventDefault();
+            var prm = $("#modal-buscaprod").find("#frmBproducto").serialize();
+            
+        });
 
     $("#btnNuevoProd").click(function (e) {
         e.preventDefault();
@@ -34,6 +49,7 @@ $(document).ready(function () {
 
         $("#modal-producto").modal('show');
     });
+    
     $("#modal-producto").on("click", "#btnGuardarProd", function (e) {
         e.preventDefault();
         var prm = $("#modal-producto").find("#frmProducto").serialize();
@@ -43,12 +59,12 @@ $(document).ready(function () {
             $("#modal-alert").modal('show');
             return;
         }
-        if ($("#modal-producto").find("#sltClasificacion").val() == null || $("#modal-producto").find("#sltClasificacion").val() == 0) {
+        /*if ($("#modal-producto").find("#sltClasificacion").val() == null || $("#modal-producto").find("#sltClasificacion").val() == 0) {
 
             $("#modal-alert-mensaje").html("Debe ingresar una clasificación");
             $("#modal-alert").modal('show');
             return;
-        }
+        }*/
 
         $.post("producto", prm, function (data) {
             if (data.estado == "OK") {
