@@ -16,10 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.ClaseModel;
 import model.ProductoModel;
 
-/**
- *
- * @author MELANY
- */
+
 public class ClaseService {
 
     public void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

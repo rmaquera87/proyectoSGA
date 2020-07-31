@@ -5,10 +5,6 @@
  */
 package entity;
 
-/**
- *
- * @author DAYIRO
- */
 public class Usuarios {
 
 private int idUsuario;

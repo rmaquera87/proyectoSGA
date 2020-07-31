@@ -14,10 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.MarcaModel;
 import util.ViewResolve;
 
-/**
- *
- * @author VAIO
- */
+
 public class MarcaService {
     public void registra(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Se obtiene los parametros

@@ -5,10 +5,6 @@
  */
 package entity;
 
-/**
- *
- * @author Joseph
- */
 public class Almacen {
     private int idAlmacen;
    private String descripcion;

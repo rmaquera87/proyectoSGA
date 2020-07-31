@@ -15,10 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.ProveedorModel;
 import util.ViewResolve;
 
-/**
- *
- * @author Jonatan
- */
+
 public class ProveedorService {
     public void registra(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Se obtiene los parametros

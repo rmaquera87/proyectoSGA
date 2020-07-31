@@ -21,11 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author DAYIRO
- * filtro para peticiones HTTP
- */
+
 @WebFilter("/*")
 public class SGAFilter implements Filter {
 

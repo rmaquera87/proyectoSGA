@@ -19,10 +19,6 @@ import model.ClaseModel;
 import model.ProductoModel;
 import util.ViewResolve;
 
-/**
- *
- * @author MELANY
- */
 public class MainService {
 
     public void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -204,12 +204,16 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
+                                <li><a href="almacen"><i class="fa fa-circle-o"></i> Almacen</a></li>
                                 <li><a href="producto"><i class="fa fa-circle-o"></i> Producto</a></li>
                                 <li><a href="proveedor"><i class="fa fa-circle-o"></i> Proveedor</a></li>
-
-                                <li><a href="almacen"><i class="fa fa-circle-o"></i> Almacen</a></li>
+                                <li><a href="cliente"><i class="fa fa-circle-o"></i> Clientes</a></li>       
                                 <li><a href="marca"><i class="fa fa-circle-o"></i> Marca</a></li>
                                 <li><a href="unimedida"><i class="fa fa-circle-o"></i> Unidad de Medida</a></li>
+                                <li><a href="tipoDocId"><i class="fa fa-circle-o"></i> Tipo Documento Identidad</a></li>
+                                <li><a href="motivo"><i class="fa fa-circle-o"></i> Motivo Movimientos</a></li>
+                                <li><a href="moneda"><i class="fa fa-circle-o"></i> Tipo de Moneda</a></li>
+                                <li><a href="TipoDoc"><i class="fa fa-circle-o"></i> Tipo Documento</a></li>
                             </ul>
                             <a href="#">
                                 <i class="fa fa-edit"></i> <span>Transacciones</span>

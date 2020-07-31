@@ -15,10 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.MysqlDBConexion;
 
-/**
- *
- * @author Joseph
- */
+
 public class AlmacenModel {
     public int insertarAlmacen(Almacen obj){
         int salida = -1;

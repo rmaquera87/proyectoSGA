@@ -18,10 +18,6 @@ import model.AlmacenModel;
 import model.UsuariosModel;
 import util.ViewResolve;
 
-/**
- *
- * @author Joseph
- */
 public class LoginService {
 
     public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

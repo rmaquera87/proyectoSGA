@@ -16,10 +16,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.MysqlDBConexion;
 
-/**
- *
- * @author Jonatan
- */
 public class ProveedorModel {
     //Metodo insertar
     public int insertarProveedor(Proveedor obj){
