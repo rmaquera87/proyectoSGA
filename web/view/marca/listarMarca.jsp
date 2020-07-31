@@ -1,7 +1,7 @@
 <%-- 
     Document   : listarMarca
     Created on : 07/07/2020, 10:23:30 PM
-    Author     : VAIO
+    Author     : CMENA
 --%>
 <%@page import="entity.Marca"%>
 <%@page import="java.util.List"%>

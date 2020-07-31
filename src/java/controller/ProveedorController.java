@@ -14,10 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.ProveedorService;
 
-/**
- *
- * @author Jonatan
- */
 @WebServlet(name = "proveedor", urlPatterns = {"/proveedor"})
 public class ProveedorController extends HttpServlet {
 

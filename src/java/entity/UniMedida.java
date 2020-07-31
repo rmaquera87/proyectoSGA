@@ -5,10 +5,6 @@
  */
 package entity;
 
-/**
- *
- * @author VAIO
- */
 public class UniMedida {
     private int id_undmed;
     private String ume_descripcion;

@@ -17,10 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.MysqlDBConexion;
 
-/**
- *
- * @author MELANY
- */
+
 public class ClaseModel {
 
     public List<Clase> listaClase() {

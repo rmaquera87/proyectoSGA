@@ -16,7 +16,7 @@ import service.AlmacenService;
 
 /**
  *
- * @author Joseph
+ * @author
  */
 @WebServlet(name = "almacen", urlPatterns = {"/almacen"})
 public class AlmacenController extends HttpServlet {

@@ -15,10 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import model.AlmacenModel;
 import util.ViewResolve;
 
-/**
- *
- * @author Joseph
- */
 public class AlmacenService {
         public void registra(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Se obtiene los parametros

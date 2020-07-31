@@ -17,10 +17,7 @@ import model.ClaseModel;
 import model.ProductoModel;
 import util.ViewResolve;
 
-/**
- *
- * @author MELANY
- */
+
 public class ProductoService {
 
     public void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,25 +32,38 @@ public class ProductoService {
     public void registra(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String descripcion = request.getParameter("txtDescripcion");
-        String forma = request.getParameter("txtForma");
-        String material = request.getParameter("txtMaterial");
-        String tamanio = request.getParameter("txtTamanio");
-        String color = request.getParameter("txtColor");
-        String clase = request.getParameter("sltClasificacion");
+        String undmedida = request.getParameter("txtUndMedida");
+        String marca = request.getParameter("txtMarca");
+        String tipinv = request.getParameter("txtTipInv");
+        String costo = request.getParameter("txtCosto");
+        String precio = request.getParameter("txtprecio");
+        String stkmin = request.getParameter("txtstkmin");
+        String stkmax = request.getParameter("txtstkmax");
+        String peso = request.getParameter("txtpeso");
+//        String estado = request.getParameter("txtestado");
+        
+//        String forma = request.getParameter("txtForma");
+//        String material = request.getParameter("txtMaterial");
+//        String tamanio = request.getParameter("txtTamanio");
+//        String color = request.getParameter("txtColor");
+//        String clase = request.getParameter("sltClasificacion");
 
         descripcion=(descripcion!=null)?descripcion.toUpperCase():descripcion;
-        forma=(forma!=null)?forma.toUpperCase():forma;
-        material=(material!=null)?material.toUpperCase():material;
-        tamanio=(tamanio!=null)?tamanio.toUpperCase():tamanio;
-        color=(color!=null)?color.toUpperCase():color;
+//        undmedida=(undmedida!=null)?undmedida.toUpperCase():undmedida;
+//        marca=(marca!=null)?marca.toUpperCase():marca;
+//        tipinv=(marca!=null)?marca.toUpperCase():marca;
+//        costo=(costo!=null)?costo.toUpperCase():costo;
         
         Producto p = new Producto();
-        p.setDescripcion(descripcion);
-        p.setForma(forma);
-        p.setMaterial(material);
-        p.setTamanio(tamanio);
-        p.setColor(color);
-        p.setIdClase(Integer.parseInt(clase));
+        p.setPrd_descripcion(descripcion);
+        p.setId_undmed(Integer.parseInt(undmedida));
+        p.setId_marca(Integer.parseInt(marca));
+        p.setId_tipinv(Integer.parseInt(tipinv));
+        p.setPrd_costo(Double.parseDouble(costo));
+        p.setPrd_precio(Double.parseDouble(precio));
+        p.setPrd_stkmin(Integer.parseInt(stkmin));
+        p.setPrd_stkmax(Integer.parseInt(stkmax));
+        p.setPrd_peso(Double.parseDouble(peso));
 
         ProductoModel pm = new ProductoModel();
         pm.insertProducto(p);
@@ -66,26 +76,39 @@ public class ProductoService {
 
     public void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String descripcion = request.getParameter("txtBusDescripcion");
-        String forma = request.getParameter("txtBusForma");
-        String material = request.getParameter("txtBusMaterial");
-        String clase = request.getParameter("sltBusClasificacion");
-        Integer idcla = null;
-        if (clase != null && !clase.equals("")) {
-            idcla = Integer.parseInt(clase);
-        }
+        String descripcion = request.getParameter("txtDescripcion");
+        String undmedida = request.getParameter("txtUndMedida");
+        String marca = request.getParameter("txtMarca");
+        String tipinv = request.getParameter("txtTipInv");
+        String costo = request.getParameter("txtCosto");
+        String precio = request.getParameter("txtprecio");
+        String stkmin = request.getParameter("txtstkmin");
+        String stkmax = request.getParameter("txtstkmax");
+        String peso = request.getParameter("txtpeso");
+        String estado = request.getParameter("txtestado");
+//        String clase = request.getParameter("sltBusClasificacion");
+//        Integer idcla = null;
+//        if (clase != null && !clase.equals("")) {
+//            idcla = Integer.parseInt(clase);
+//        }
 
         descripcion=(descripcion!=null)?descripcion.toUpperCase():descripcion;
-        forma=(forma!=null)?forma.toUpperCase():forma;
-        material=(material!=null)?material.toUpperCase():material;
+//        forma=(forma!=null)?forma.toUpperCase():forma;
+//        material=(material!=null)?material.toUpperCase():material;
 
         
         Producto p = new Producto();
-        p.setDescripcion(descripcion);
-        p.setForma(forma);
-        p.setMaterial(material);
-        p.setIdClase(idcla);
-
+        p.setPrd_descripcion(descripcion);
+        p.setId_undmed(Integer.parseInt(undmedida));
+        p.setId_marca(Integer.parseInt(marca));
+        p.setId_tipinv(Integer.parseInt(tipinv));
+        p.setPrd_costo(Double.parseDouble(costo));
+        p.setPrd_precio(Double.parseDouble(precio));
+        p.setPrd_stkmin(Integer.parseInt(stkmin));
+        p.setPrd_stkmax(Integer.parseInt(stkmax));
+        p.setPrd_peso(Double.parseDouble(peso));
+        p.setPrd_estado(estado);
+        
         ProductoModel model = new ProductoModel();
         List<Producto> data = model.listaProducto(p);
 
@@ -99,27 +122,30 @@ public class ProductoService {
     
     public void actualiza(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String descripcion = request.getParameter("txtDescripcion");
-        String forma = request.getParameter("txtForma");
-        String material = request.getParameter("txtMaterial");
-        String tamanio = request.getParameter("txtTamanio");
-        String color = request.getParameter("txtColor");
-        String clase = request.getParameter("sltClasificacion");
+        String undmedida = request.getParameter("txtUndMedida");
+        String marca = request.getParameter("txtMarca");
+        String tipinv = request.getParameter("txtTipInv");
+        String costo = request.getParameter("txtCosto");
+        String precio = request.getParameter("txtprecio");
+        String stkmin = request.getParameter("txtstkmin");
+        String stkmax = request.getParameter("txtstkmax");
+        String peso = request.getParameter("txtpeso");
+        String estado = request.getParameter("txtestado");
         int id = Integer.parseInt(request.getParameter("id"));
         
         descripcion=(descripcion!=null)?descripcion.toUpperCase():descripcion;
-        forma=(forma!=null)?forma.toUpperCase():forma;
-        material=(material!=null)?material.toUpperCase():material;
-        tamanio=(tamanio!=null)?tamanio.toUpperCase():tamanio;
-        color=(color!=null)?color.toUpperCase():color;
         
         Producto p = new Producto();
         p.setIdProducto(id);
-        p.setDescripcion(descripcion);
-        p.setForma(forma);
-        p.setMaterial(material);
-        p.setTamanio(tamanio);
-        p.setColor(color);
-        p.setIdClase(Integer.parseInt(clase));
+        p.setId_undmed(Integer.parseInt(undmedida));
+        p.setId_marca(Integer.parseInt(marca));
+        p.setId_tipinv(Integer.parseInt(tipinv));
+        p.setPrd_costo(Double.parseDouble(costo));
+        p.setPrd_precio(Double.parseDouble(precio));
+        p.setPrd_stkmin(Integer.parseInt(stkmin));
+        p.setPrd_stkmax(Integer.parseInt(stkmax));
+        p.setPrd_peso(Double.parseDouble(peso));
+        p.setPrd_estado(estado);
 
         ProductoModel pm = new ProductoModel();
         pm.actualizarProdcuto(p);

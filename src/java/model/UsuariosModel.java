@@ -14,10 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.MysqlDBConexion;
 
-/**
- *
- * @author DAYIRO
- */
 public class UsuariosModel {
 
     public Usuarios obtenerUsuario(Usuarios u) {

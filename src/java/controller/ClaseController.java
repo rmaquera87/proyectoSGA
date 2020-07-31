@@ -14,10 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.ClaseService;
 
-/**
- *
- * @author MELANY
- */
+
 @WebServlet(name = "clase", urlPatterns = {"/clase"})
 public class ClaseController extends HttpServlet {
 

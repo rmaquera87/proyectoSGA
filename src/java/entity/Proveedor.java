@@ -5,10 +5,7 @@
  */
 package entity;
 
-/**
- *
- * @author Jonatan
- */
+
 public class Proveedor {
    private int idProveedor;
    private int idTipoDoc;

@@ -1,7 +1,7 @@
 <%-- 
     Document   : listaUniMedida
     Created on : 08/07/2020, 10:22:48 PM
-    Author     : VAIO
+    Author     : CMENA
 --%>
 
 <%@page import="entity.UniMedida"%>
