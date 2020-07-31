@@ -1,6 +1,6 @@
 <%@page import="entity.Usuarios"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<% Usuarios dataMain = (Usuarios)request.getAttribute("dataMain");%>
+<% Usuarios dataMain = (Usuarios) request.getAttribute("dataMain");%>
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
@@ -87,6 +87,13 @@
         <!-- AdminLTE for demo purposes -->
         <script src="lib/plantilla/dist/js/demo.js"></script>
 
+        <!-- Select2 -->
+        <link rel="stylesheet" href="lib/plantilla/bower_components/select2/dist/css/select2.min.css">
+
+        <!-- Select2 -->
+        <script src="lib/plantilla/bower_components/select2/dist/js/select2.full.min.js"></script>
+
+
         <script src="js/sga.js"></script>
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
@@ -114,7 +121,7 @@
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="lib/plantilla/dist/img/user1.jpg" class="user-image" alt="User Image">
-                                    <span class="hidden-xs" ><%= ((dataMain!= null)?dataMain.getUsuUsername():"") %></span>
+                                    <span class="hidden-xs" ><%= ((dataMain != null) ? dataMain.getUsuUsername() : "")%></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
@@ -122,7 +129,7 @@
                                         <img src="lib/plantilla/dist/img/user1.jpg" class="img-circle" alt="User Image">
 
                                         <p>
-                                            <%= ((dataMain!= null)?dataMain.getUsuNombre()+" "+dataMain.getUsuApellidos():"") %>
+                                            <%= ((dataMain != null) ? dataMain.getUsuNombre() + " " + dataMain.getUsuApellidos() : "")%>
                                             <small></small>
                                         </p>
                                     </li>
@@ -170,7 +177,7 @@
                             <img src="lib/plantilla/dist/img/user1.jpg" class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
-                            <p><%= ((dataMain!= null)?dataMain.getUsuUsername():"") %></p>
+                            <p><%= ((dataMain != null) ? dataMain.getUsuUsername() : "")%></p>
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>
@@ -214,9 +221,9 @@
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
-                             <ul class="treeview-menu">
-                                <li><a href=""><i class="fa fa-circle-o"></i> Partes de Ingreso</a></li>
-                                <li><a href=""><i class="fa fa-circle-o"></i> Partes de Salida</a></li>
+                            <ul class="treeview-menu">
+                                <li><a href="parteIngreso"><i class="fa fa-circle-o"></i> Partes de Ingreso</a></li>
+                                <li><a href="parteSalida"><i class="fa fa-circle-o"></i> Partes de Salida</a></li>
                             </ul>
                             <a href="#">
                                 <i class="fa fa-edit"></i> <span>Consultas</span>

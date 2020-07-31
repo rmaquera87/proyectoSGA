@@ -6,10 +6,12 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MysqlDBConexion 
-{
-    public static Connection getConexion() throws SQLException{
-        Connection conn;
+public class MysqlDBConexion {
+
+    private static Connection conn;
+
+    public static Connection getConexionBD() throws SQLException {
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
@@ -17,7 +19,15 @@ public class MysqlDBConexion
         }
 //        conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/bdsga","root","");
         //conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gestion_almacenes","root","");
-        conn=DriverManager.getConnection("jdbc:mysql://database-1.csgacodug5s4.sa-east-1.rds.amazonaws.com:3306/gestion_almacenes","admin","admin123");
+        conn = DriverManager.getConnection("jdbc:mysql://database-1.csgacodug5s4.sa-east-1.rds.amazonaws.com:3306/gestion_almacenes", "admin", "admin123");
         return conn;
-    }		
+    }
+
+    public static Connection getConexion() throws SQLException {
+        if (conn == null) {
+            conn = getConexionBD();
+        }
+
+        return conn;
+    }
 }
