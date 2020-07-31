@@ -36,6 +36,20 @@
             <file>file:/D:/JavaWebSGA/src/java/controller/MainController.java</file>
             <file>file:/D:/JavaWebSGA/nbproject/project.properties</file>
         </group>
-        <group/>
+        <group>
+            <file>file:/D:/proyectoSGA/web/view/parteIngreso/listaMParteIngreso.jsp</file>
+            <file>file:/D:/proyectoSGA/web/view/parteIngreso/MParteIngreso.jsp</file>
+            <file>file:/D:/proyectoSGA/web/view/producto/index.jsp</file>
+            <file>file:/D:/proyectoSGA/nbproject/build-impl.xml</file>
+            <file>file:/D:/proyectoSGA/web/view/proveedor/listaProveedor.jsp</file>
+            <file>file:/D:/proyectoSGA/src/java/model/ProveedorModel.java</file>
+            <file>file:/D:/proyectoSGA/src/java/service/AlmacenService.java</file>
+            <file>file:/D:/proyectoSGA/src/java/entity/Producto.java</file>
+            <file>file:/D:/proyectoSGA/web/view/parteIngreso/listaParteIngreso.jsp</file>
+            <file>file:/D:/proyectoSGA/src/java/controller/AlmacenController.java</file>
+            <file>file:/D:/proyectoSGA/src/java/service/ParteIngresoService.java</file>
+            <file>file:/D:/proyectoSGA/web/view/proveedor/actualizaProveedor.jsp</file>
+            <file>file:/D:/proyectoSGA/src/java/model/ProductoModel.java</file>
+        </group>
     </open-files>
 </project-private>

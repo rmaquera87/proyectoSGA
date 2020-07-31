@@ -11,9 +11,9 @@ package entity;
  */
 public class Proveedor {
    private int idProveedor;
-   private int tipodoc;
-   private String nrodoc;
-   private String razsoc;
+   private int idTipoDoc;
+   private String ruc;
+   private String razonSocial;
    private String direccion;
    private String telefono;
    private String email;
@@ -27,28 +27,28 @@ public class Proveedor {
         this.idProveedor = idProveedor;
     }
 
-    public int getTipodoc() {
-        return tipodoc;
+    public int getIdTipoDoc() {
+        return idTipoDoc;
     }
 
-    public void setTipodoc(int tipodoc) {
-        this.tipodoc = tipodoc;
+    public void setIdTipoDoc(int idTipoDoc) {
+        this.idTipoDoc = idTipoDoc;
     }
 
-    public String getNrodoc() {
-        return nrodoc;
+    public String getRuc() {
+        return ruc;
     }
 
-    public void setNrodoc(String nrodoc) {
-        this.nrodoc = nrodoc;
+    public void setRuc(String ruc) {
+        this.ruc = ruc;
     }
 
-    public String getRazsoc() {
-        return razsoc;
+    public String getRazonSocial() {
+        return razonSocial;
     }
 
-    public void setRazsoc(String razsoc) {
-        this.razsoc = razsoc;
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
     }
 
     public String getDireccion() {
@@ -82,6 +82,8 @@ public class Proveedor {
     public void setPais(String pais) {
         this.pais = pais;
     }
+
+   
 
     
 }

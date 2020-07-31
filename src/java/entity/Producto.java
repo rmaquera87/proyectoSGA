@@ -10,7 +10,7 @@ package entity;
  * @author MELANY
  */
 public class Producto {
-    
+    private int idProducto;
     private int producto;
     private String descripcion;
     private int undmed;
@@ -22,8 +22,13 @@ public class Producto {
     private int stkmax;
     private double peso;
     private String estado;
+
+
     
-    
+    public int getIdProducto() {    
+        return idProducto;
+    }
+
     /*
     private int idProducto;
     private String descripcion;
@@ -33,72 +38,58 @@ public class Producto {
     private String color;
     private Integer idClase;
     private String nomClase;
-
-    
     public int getIdProducto() {
-        return idProducto;
+    return idProducto;
     }
-
+    public void setIdProducto(int idProducto) {
+    this.idProducto = idProducto;
+    }
+    public String getDescripcion() {
+    return descripcion;
+    }
+    public void setDescripcion(String descripcion) {
+    this.descripcion = descripcion;
+    }
+    public String getForma() {
+    return forma;
+    }
+    public void setForma(String forma) {
+    this.forma = forma;
+    }
+    public String getMaterial() {
+    return material;
+    }
+    public void setMaterial(String material) {
+    this.material = material;
+    }
+    public String getTamanio() {
+    return tamanio;
+    }
+    public void setTamanio(String tamanio) {
+    this.tamanio = tamanio;
+    }
+    public String getColor() {
+    return color;
+    }
+    public void setColor(String color) {
+    this.color = color;
+    }
+    public Integer getIdClase() {
+    return idClase;
+    }
+    public void setIdClase(Integer idClase) {
+    this.idClase = idClase;
+    }
+    public String getNomClase() {
+    return nomClase;
+    }
+    public void setNomClase(String nomClase) {
+    this.nomClase = nomClase;
+    }
+     */
     public void setIdProducto(int idProducto) {
         this.idProducto = idProducto;
     }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getForma() {
-        return forma;
-    }
-
-    public void setForma(String forma) {
-        this.forma = forma;
-    }
-
-    public String getMaterial() {
-        return material;
-    }
-
-    public void setMaterial(String material) {
-        this.material = material;
-    }
-
-    public String getTamanio() {
-        return tamanio;
-    }
-
-    public void setTamanio(String tamanio) {
-        this.tamanio = tamanio;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public Integer getIdClase() {
-        return idClase;
-    }
-
-    public void setIdClase(Integer idClase) {
-        this.idClase = idClase;
-    }
-
-    public String getNomClase() {
-        return nomClase;
-    }
-
-    public void setNomClase(String nomClase) {
-        this.nomClase = nomClase;
-    }
-*/
 
     public int getProducto() {
         return producto;

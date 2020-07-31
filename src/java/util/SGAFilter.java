@@ -24,6 +24,7 @@ import javax.servlet.http.HttpSession;
 /**
  *
  * @author DAYIRO
+ * filtro para peticiones HTTP
  */
 @WebFilter("/*")
 public class SGAFilter implements Filter {

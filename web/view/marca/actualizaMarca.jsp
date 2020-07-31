@@ -1,7 +1,7 @@
 <%-- 
     Document   : actualizaMarca
     Created on : 08/07/2020, 12:42:28 AM
-    Author     : VAIO
+    Author     : CMENA
 --%>
 
 <%@page import="entity.Marca"%>

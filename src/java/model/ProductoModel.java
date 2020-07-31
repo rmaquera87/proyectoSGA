@@ -216,4 +216,34 @@ public class ProductoModel {
         }
         return salida;
     }
+    
+    public List<Producto> listaProductoMin() {
+
+        List<Producto> data = new ArrayList<>();
+        try {
+            Connection conn;
+            PreparedStatement pstm;
+            ResultSet rs;
+            conn = MysqlDBConexion.getConexion();
+            String sql = "select id_producto,prd_descripcion from productos";
+
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            Producto regProd;
+
+            while (rs.next()) {
+                regProd = new Producto();
+                regProd.setIdProducto(rs.getInt("id_producto"));
+                regProd.setDescripcion(rs.getString("prd_descripcion"));
+
+                data.add(regProd);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductoModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return data;
+
+    }
+    
 }
