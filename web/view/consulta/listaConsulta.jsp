@@ -1,18 +1,22 @@
+<%-- 
+    Document   : listaConsulta
+    Created on : 31/07/2020, 02:23:16 AM
+    Author     : VAIO
+--%>
 
-
+<%@page import="dto.KardexCabeceraDTO" %>
+<%@page import="java.util.List" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@page import="entity.Proveedor" %>
-<%@page import="java.util.List" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Proveedor</title>
+        <title>JSP Page</title>
     </head>
     <body>
-    <section class="content-header">
+        <section class="content-header">
         <h1>
-            Proveedor <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Nuevo</button> <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModalSearch">Buscar</button>
+            Historial Movimientos <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModalSearch">Buscar</button>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -29,24 +33,24 @@
         <table class="table table-bordered table-hover">
             
             <tr class="grilla_cabecera">
-                <th>Id</th><th>Tipo Doc.</th>><th>Nro Documento</th><th>Razón social</th><th>Teléfono</th><th>Dirección</th><th>Email</th><th>Pais</th><th>Eliminar</th><th>Editar</th>
+                <th>Id</th><th>Fecha</th><th>Tipo Doc.</th><th>Motivo</th><th>Alamcen</th><th>Producto</th><th>Cantidad</th>
             </tr>
             
             <% 
-                List<Proveedor> data = (List<Proveedor>)request.getAttribute("data");
+                List<KardexCabeceraDTO> data = (List<KardexCabeceraDTO>)request.getAttribute("data");
                 if (data!=null) {
-                        for(Proveedor x: data){
+                        for(KardexCabeceraDTO x: data){
                         %>
                        <tr class="grilla_campo">
-                          <td><%= x.getIdProveedor()%></td>
-                            <td><%= x.getTdiAbreviatura()%></td>
-                            <td><%= x.getRuc()%></td>
-                            <td><%= x.getRazonSocial()%></td>
-                            <td><%= x.getTelefono()%></td>
-                            <td><%= x.getDireccion()%></td> 
-                            <td><%= x.getEmail()%></td>
-                            <td><%= x.getPais()%></td>
-                            <td>
+                          <td><%= x.getIdKdxcab()%></td>
+                            <td><%= x.getKacFecha()%></td>
+                            <td><%= x.getTdoAbreviatura()%></td>
+                            <td><%= x.getMmoDescripcion()%></td>
+                            <td><%= x.getAlmDescripcion()%></td>
+                            <td><%= x.getPrdDescripcion()%></td> 
+                            <td><%= x.getPrdCantidad()%></td>
+
+<%--                            <td>
                                 <a href="proveedor?metodo=elimina&id=<%= x.getIdProveedor()%>">
                                     <img alt="Elimina" src="images/Delete.gif">
                                 </a>
@@ -55,7 +59,7 @@
                                 <a href="proveedor?metodo=busca&id=<%= x.getIdProveedor()%>">
                                     <img alt="Actualiza" src="images/Edit.gif">
                                 </a>
-                            </td>   
+                            </td>  --%> 
                         </tr>   
                         <%
                         }
@@ -69,7 +73,7 @@
  </section>
        
       <!-- Modal - agregar -->
-      <div class="modal fade" id="myModal" role="dialog">
+<%--      <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
 
           <!-- Modal content-->
@@ -141,7 +145,7 @@
 
         </div>
       </div>
-      </div>
+      </div> --%>
       <!--Modal agregar - fin-->
       <!-- Modal - busqueda -->
       <div class="modal fade" id="myModalSearch" role="dialog">
@@ -151,20 +155,20 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Buscar Proveedores</h4>
+              <h4 class="modal-title">Buscar</h4>
             </div>
             <div class="modal-body">
-              <form action="proveedor" method="post" class="form-horizontal">
+              <form action="consulta" method="post" class="form-horizontal">
                 <input type="hidden" name="metodo" value="ubica">
                 <div class="box-body">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">RUC</label>
+                        <label class="col-sm-2 control-label">PRODUCTO</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" maxlength="11" name="ruc" placeholder="Ingresa un numero">
+                            <input type="text" class="form-control" name="descripcion" placeholder="Ingresa descripcion">
                         </div>
                     </div>
-                    <div class="form-group">
+<%--                    <div class="form-group">
                         <label class="col-sm-2 control-label">RAZON SOCIAL</label>
 
                         <div class="col-sm-10">
@@ -184,7 +188,7 @@
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="direccion" placeholder="Ingresa una letra">
                         </div>
-                    </div>          
+                    </div>    --%>      
                     <div class="modal-footer">
                       <button type="submit" class="btn btn-success">Buscar</button>
                       <button type="reset" class="btn btn-warning">Limpiar</button>

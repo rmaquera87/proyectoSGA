@@ -49,7 +49,8 @@ public class ClienteModel {
             Connection conn;
             conn = MysqlDBConexion.getConexion();
             ResultSet rs;
-            String sql = "select * from clientes";
+            String sql = "select cl.*,tdi.tdi_abreviatura from clientes cl\n" +
+                         "left join tipo_documento_identidad tdi on tdi.id_tipodoc=cl.id_tipodoc";
             pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery();
             
@@ -57,7 +58,8 @@ public class ClienteModel {
             while(rs.next()){
                 obj = new Cliente();
                 obj.setId_cliente(rs.getInt("id_cliente"));
-                obj.setId_tipodoc(rs.getInt("id_tipodoc"));
+//                obj.setId_tipodoc(rs.getInt("id_tipodoc"));
+                obj.setTdiAbrreviatura(rs.getString("tdi_abreviatura"));
                 obj.setCli_nrodoc(rs.getString("cli_nrodoc"));
                 obj.setCli_nombres(rs.getString("cli_nombres"));
                 obj.setCli_apellidos(rs.getString("cli_apellidos"));
@@ -114,7 +116,7 @@ public class ClienteModel {
             if (rs.next()) {
                 obj = new Cliente();
                 obj.setId_cliente(rs.getInt("id_cliente"));
-                obj.setId_tipodoc(rs.getInt("id_tipodoc"));
+                obj.setId_tipodoc(rs.getInt("id_tipodoc"));               
                 obj.setCli_nrodoc(rs.getString("cli_nrodoc"));
                 obj.setCli_nombres(rs.getString("cli_nombres"));
                 obj.setCli_apellidos(rs.getString("cli_apellidos"));
@@ -153,18 +155,21 @@ public class ClienteModel {
             Connection conn;
             conn = MysqlDBConexion.getConexion();
             ResultSet rs;
-            String sql = "select * from clientes where cli_nrodoc like '%" + p.getCli_nrodoc()+ "%' and cliente_nombres like '%" 
+            String sql = "select cl.*,tdi.tdi_abreviatura from clientes cl\n" +
+                         "left join tipo_documento_identidad tdi on tdi.id_tipodoc=cl.id_tipodoc \n" 
+                    + "where cli_nrodoc like '%" + p.getCli_nrodoc()+ "%' and cli_nombres like '%" 
                     + p.getCli_nombres()+ "%' and cli_apellidos like '%" + p.getCli_apellidos()+"%' and cli_razon_social like '%" 
                     + p.getCli_rzasoc()+"%' and cli_direccion like '%" + p.getCli_direccion()+"%' and cli_telefono like '%" 
-                    + p.getCli_telefono()+"%' and cli_email like '%" + p.getCli_email()+ "%'";
+                    + p.getCli_telefono()+"%'";
             pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery();
-            
+//+ p.getCli_telefono()+"%' and cli_email like '%" + p.getCli_email()+ "%'";            
             Cliente obj;
             while(rs.next()){
                 obj = new Cliente();
                 obj.setId_cliente(rs.getInt("id_cliente"));
-                obj.setId_tipodoc(rs.getInt("id_tipodoc"));
+//                obj.setId_tipodoc(rs.getInt("id_tipodoc"));
+                obj.setTdiAbrreviatura(rs.getString("tdi_abreviatura"));
                 obj.setCli_nrodoc(rs.getString("cli_nrodoc"));
                 obj.setCli_nombres(rs.getString("cli_nombres"));
                 obj.setCli_apellidos(rs.getString("cli_apellidos"));

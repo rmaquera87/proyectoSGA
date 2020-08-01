@@ -109,7 +109,5 @@ private String kadFecreg;
     public void setKadFecreg(String kadFecreg) {
         this.kadFecreg = kadFecreg;
     }
-
-
-
+    
 }

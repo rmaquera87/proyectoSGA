@@ -191,6 +191,49 @@ public class KardexCabeceraDAO {
         return salida;
     }
     
+    public ArrayList<KardexCabeceraDTO> listaConsulta(KardexCabeceraDTO k){
+        ArrayList<KardexCabeceraDTO> data = new ArrayList<>();
+        try {
+            PreparedStatement pstm;
+            Connection conn;
+            conn = MysqlDBConexion.getConexion();
+            ResultSet rs;
+            String sql = "select kc.id_kdxcab,kc.kac_fecha, kc.id_tdo, td.tdo_abreviatura,kc.id_motivo,mm.mmo_descripcion,\n" +
+            "kc.id_almacen,a.alm_descripcion,kd.id_producto,p.prd_descripcion,kd.kad_cantidad\n" +
+            "from kardex_cabecera kc\n" +
+            "inner join almacenes a  on kc.id_almacen =a.id_almacen \n" +
+            "inner join motivo_movimientos mm on kc.id_motivo =mm.id_motivo\n" +
+            "inner join tipo_documento td on kc.id_tdo =td.id_tdo\n" + 
+            "inner join kardex_detalle kd on kc.id_kdxcab =kd.id_kdxcab\n" + 
+            "inner join productos p on kd.id_producto =p.id_producto\n" + 
+            "where p.prd_descripcion like '%"+k.getPrdDescripcion()+"%' \n" +
+            "order by kc.id_kdxcab asc";
+//            "where p.prd_descripcion like '%"+k.getPrdDescripcion()+"%' ";          
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            KardexCabeceraDTO obj;
+            while(rs.next()){
+                obj = new KardexCabeceraDTO();
+                obj.setIdKdxcab(rs.getInt("id_kdxcab"));
+                obj.setKacFecha(rs.getString("kac_fecha"));
+//                obj.setIdTdo(rs.getInt("id_tdo"));
+                obj.setTdoAbreviatura(rs.getString("tdo_abreviatura"));
+//                obj.setIdMotivo(rs.getInt("id_motivo"));
+                obj.setMmoDescripcion(rs.getString("mmo_descripcion"));
+//                obj.setIdAlmacen(rs.getInt("id_almacen"));
+                obj.setAlmDescripcion(rs.getString("alm_descripcion"));
+//                obj.setId_producto(rs.getInt("id_producto"));
+                obj.setPrdDescripcion(rs.getString("prd_descripcion"));
+                obj.setPrdCantidad(rs.getInt("kad_cantidad"));
+
+                data.add(obj);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KardexCabeceraDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return data;
+    }
     
     /*
     //Metodo 3 actualizar

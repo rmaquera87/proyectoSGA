@@ -33,6 +33,11 @@ private String mmoDescripcion;
 private String proRazsoc;
 private String cliDescripcion;
 
+private int id_producto;
+private String prdDescripcion;
+private int prdCantidad;
+private String tdoAbreviatura;
+
     public int getIdKdxcab() {
         return idKdxcab;
     }
@@ -193,7 +198,36 @@ private String cliDescripcion;
         this.cliDescripcion = cliDescripcion;
     }
 
+    public int getId_producto() {
+        return id_producto;
+    }
 
-
+    public void setId_producto(int id_producto) {
+        this.id_producto = id_producto;
+    }
     
+    public String getPrdDescripcion() {
+        return prdDescripcion;
+    }
+
+    public void setPrdDescripcion(String prdDescripcion) {
+        this.prdDescripcion = prdDescripcion;
+    }
+
+    public int getPrdCantidad() {
+        return prdCantidad;
+    }
+
+    public void setPrdCantidad(int prdCantidad) {
+        this.prdCantidad = prdCantidad;
+    }
+
+    public String getTdoAbreviatura() {
+        return tdoAbreviatura;
+    }
+
+    public void setTdoAbreviatura(String tdoAbreviatura) {
+        this.tdoAbreviatura = tdoAbreviatura;
+    }
+
 }

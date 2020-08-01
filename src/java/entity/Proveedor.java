@@ -15,6 +15,8 @@ public class Proveedor {
    private String telefono;
    private String email;
    private String pais;
+   
+   private String tdiAbreviatura;
 
     public int getIdProveedor() {
         return idProveedor;
@@ -80,7 +82,12 @@ public class Proveedor {
         this.pais = pais;
     }
 
-   
+    public String getTdiAbreviatura() {
+        return tdiAbreviatura;
+    }
 
-    
+    public void setTdiAbreviatura(String tdiAbreviatura) {
+        this.tdiAbreviatura = tdiAbreviatura;
+    }
+
 }

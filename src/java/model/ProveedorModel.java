@@ -48,7 +48,8 @@ public class ProveedorModel {
             Connection conn;
             conn = MysqlDBConexion.getConexion();
             ResultSet rs;
-            String sql = "select * from proveedores";
+            String sql = "select p.*,tdi.tdi_abreviatura from proveedores p\n" +
+                         "left join tipo_documento_identidad tdi on tdi.id_tipodoc=p.id_tipodoc ";
             pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery();
             
@@ -56,7 +57,8 @@ public class ProveedorModel {
             while(rs.next()){
                 obj = new Proveedor();
                 obj.setIdProveedor(rs.getInt("id_proveedor"));
-                obj.setIdTipoDoc(rs.getInt("id_tipodoc"));
+//                obj.setIdTipoDoc(rs.getInt("id_tipodoc"));
+                obj.setTdiAbreviatura(rs.getString("tdi_Abreviatura"));
                 obj.setRuc(rs.getString("pro_nrodoc"));
                 obj.setRazonSocial(rs.getString("pro_razsoc"));
                 obj.setDireccion(rs.getString("pro_direccion"));
@@ -149,7 +151,9 @@ public class ProveedorModel {
             Connection conn;
             conn = MysqlDBConexion.getConexion();
             ResultSet rs;
-            String sql = "select * from proveedores  where pro_nrodoc like '%" + p.getRuc() + "%' and pro_razsoc like '%" + p.getRazonSocial()+ "%' and pro_telefono like '%" + p.getTelefono()+ "%' and pro_direccion like '%" + p.getDireccion()+ "%'";
+            String sql = "select p.*,tdi.tdi_abreviatura from proveedores p\n" +
+                         "left join tipo_documento_identidad tdi on tdi.id_tipodoc=p.id_tipodoc\n" +
+                         "where pro_nrodoc like '%" + p.getRuc() + "%' and pro_razsoc like '%" + p.getRazonSocial()+ "%' and pro_telefono like '%" + p.getTelefono()+ "%' and pro_direccion like '%" + p.getDireccion()+ "%'";
             pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery();
             
@@ -157,7 +161,8 @@ public class ProveedorModel {
             while(rs.next()){
                 obj = new Proveedor();
                 obj.setIdProveedor(rs.getInt("id_proveedor"));
-                obj.setIdTipoDoc(rs.getInt("id_tipodoc"));
+                obj.setTdiAbreviatura(rs.getString("tdi_abreviatura"));
+//                obj.setIdTipoDoc(rs.getInt("id_tipodoc"));
                 obj.setRuc(rs.getString("pro_nrodoc"));
                 obj.setRazonSocial(rs.getString("pro_razsoc"));
                 obj.setTelefono(rs.getString("pro_telefono"));

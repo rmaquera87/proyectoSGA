@@ -15,7 +15,9 @@ public class Cliente {
     private String cli_direccion;
     private String cli_telefono;
     private String cli_email;
-
+    
+    private String tdiAbrreviatura;
+  
     public int getId_cliente() {
         return id_cliente;
     }
@@ -86,6 +88,14 @@ public class Cliente {
 
     public void setCli_email(String cli_email) {
         this.cli_email = cli_email;
+    }
+    
+        public String getTdiAbrreviatura() {
+        return tdiAbrreviatura;
+    }
+
+    public void setTdiAbrreviatura(String tdiAbrreviatura) {
+        this.tdiAbrreviatura = tdiAbrreviatura;
     }
     
     

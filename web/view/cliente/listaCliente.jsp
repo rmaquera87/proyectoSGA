@@ -45,7 +45,7 @@
                         %>
                        <tr class="grilla_campo">
                           <td><%= x.getId_cliente()%></td>
-                            <td><%= x.getId_tipodoc()%></td>
+                            <td><%= x.getTdiAbrreviatura()%></td>
                             <td><%= x.getCli_nrodoc()%></td>
                             <td><%= x.getCli_nombres()%></td>
                             <td><%= x.getCli_apellidos()%></td>

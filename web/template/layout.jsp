@@ -232,8 +232,8 @@
                                 </span> 
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href=""><i class="fa fa-circle-o"></i> Consulta de Stock</a></li>
-                                <li><a href=""><i class="fa fa-circle-o"></i> Movimientos</a></li>
+<!--                                <li><a href=""><i class="fa fa-circle-o"></i> Consulta de Stock</a></li> -->
+                                <li><a href="consulta"><i class="fa fa-circle-o"></i> Movimientos</a></li>
                             </ul>
                         </li>
 
