@@ -17,10 +17,6 @@ import service.ClaseService;
 import service.ProductoService;
 import util.ViewResolve;
 
-/**
- *
- * @author MELANY
- */
 @WebServlet(name = "producto", urlPatterns = {"/producto"})
 public class ProductoController extends HttpServlet {
 
