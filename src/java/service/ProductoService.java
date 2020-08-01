@@ -17,53 +17,46 @@ import model.ClaseModel;
 import model.ProductoModel;
 import util.ViewResolve;
 
-
+/**
+ *
+ * @author MELANY
+ */
 public class ProductoService {
 
     public void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ClaseModel model = new ClaseModel();
-        List<Clase> data = model.listaClase();
+        //List<Clase> data = model.listaClase();
 
-        request.setAttribute("lsClase", data);
+        //request.setAttribute("lsClase", data);
         ViewResolve.showMain("producto/index.jsp", request, response);
     }
 
     public void registra(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        
         String descripcion = request.getParameter("txtDescripcion");
-        String undmedida = request.getParameter("txtUndMedida");
-        String marca = request.getParameter("txtMarca");
-        String tipinv = request.getParameter("txtTipInv");
-        String costo = request.getParameter("txtCosto");
-        String precio = request.getParameter("txtprecio");
-        String stkmin = request.getParameter("txtstkmin");
-        String stkmax = request.getParameter("txtstkmax");
-        String peso = request.getParameter("txtpeso");
-//        String estado = request.getParameter("txtestado");
+        Double costo = (!request.getParameter("txtcosto").isEmpty())?Double.parseDouble(request.getParameter("txtcosto")):0;
+        Double preciov = (!request.getParameter("txtprecio").isEmpty())?Double.parseDouble(request.getParameter("txtprecio")):0;
+        int stkmin = (!request.getParameter("txtstkmin").isEmpty())?Integer.parseInt(request.getParameter("txtstkmin")):0;
+        int stkmax = (!request.getParameter("txtstkmax").isEmpty())?Integer.parseInt(request.getParameter("txtstkmax")):0;
+        Double peso = (!request.getParameter("txtstkmax").isEmpty())?Double.parseDouble(request.getParameter("txtpeso")):0;
+        String estado = request.getParameter("txtestado");
         
-//        String forma = request.getParameter("txtForma");
-//        String material = request.getParameter("txtMaterial");
-//        String tamanio = request.getParameter("txtTamanio");
-//        String color = request.getParameter("txtColor");
-//        String clase = request.getParameter("sltClasificacion");
-
+        /*
         descripcion=(descripcion!=null)?descripcion.toUpperCase():descripcion;
-//        undmedida=(undmedida!=null)?undmedida.toUpperCase():undmedida;
-//        marca=(marca!=null)?marca.toUpperCase():marca;
-//        tipinv=(marca!=null)?marca.toUpperCase():marca;
-//        costo=(costo!=null)?costo.toUpperCase():costo;
-        
+        costo=(costo!=null)?costo.toUpperCase():costo;
+        preciov=(material!=null)?material.toUpperCase():material;
+        stkmin=(tamanio!=null)?tamanio.toUpperCase():tamanio;
+        stkmax=(color!=null)?color.toUpperCase():color;
+        */
         Producto p = new Producto();
-        p.setPrd_descripcion(descripcion);
-        p.setId_undmed(Integer.parseInt(undmedida));
-        p.setId_marca(Integer.parseInt(marca));
-        p.setId_tipinv(Integer.parseInt(tipinv));
-        p.setPrd_costo(Double.parseDouble(costo));
-        p.setPrd_precio(Double.parseDouble(precio));
-        p.setPrd_stkmin(Integer.parseInt(stkmin));
-        p.setPrd_stkmax(Integer.parseInt(stkmax));
-        p.setPrd_peso(Double.parseDouble(peso));
+        p.setDescripcion(descripcion);
+        p.setCosto(costo);
+        p.setPreciov(preciov);
+        p.setStkmin(stkmin);
+        p.setStkmax(stkmax);
+        p.setPeso(peso);
+        p.setEstado(estado);
 
         ProductoModel pm = new ProductoModel();
         pm.insertProducto(p);
@@ -75,40 +68,34 @@ public class ProductoService {
     }
 
     public void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String descripcion = request.getParameter("txtDescripcion");
-        String undmedida = request.getParameter("txtUndMedida");
+        ProductoModel mo = new ProductoModel();
+        List<Producto> data = mo.listaproductos();
+        
+        //Se almacena en memoria llamada request
+        request.setAttribute("data", data);
+        
+        ViewResolve.show("producto/listaProducto.jsp", request, response);
+        /*
+        String descripcion = request.getParameter("txtBusDescripcion");
         String marca = request.getParameter("txtMarca");
-        String tipinv = request.getParameter("txtTipInv");
-        String costo = request.getParameter("txtCosto");
-        String precio = request.getParameter("txtprecio");
-        String stkmin = request.getParameter("txtstkmin");
-        String stkmax = request.getParameter("txtstkmax");
-        String peso = request.getParameter("txtpeso");
-        String estado = request.getParameter("txtestado");
-//        String clase = request.getParameter("sltBusClasificacion");
-//        Integer idcla = null;
-//        if (clase != null && !clase.equals("")) {
-//            idcla = Integer.parseInt(clase);
-//        }
+        String material = request.getParameter("txtBusMaterial");
+        String clase = request.getParameter("sltBusClasificacion");
+        Integer idcla = null;
+        if (clase != null && !clase.equals("")) {
+            idcla = Integer.parseInt(clase);
+        }
 
         descripcion=(descripcion!=null)?descripcion.toUpperCase():descripcion;
-//        forma=(forma!=null)?forma.toUpperCase():forma;
-//        material=(material!=null)?material.toUpperCase():material;
+        forma=(forma!=null)?forma.toUpperCase():forma;
+        material=(material!=null)?material.toUpperCase():material;
 
         
         Producto p = new Producto();
-        p.setPrd_descripcion(descripcion);
-        p.setId_undmed(Integer.parseInt(undmedida));
-        p.setId_marca(Integer.parseInt(marca));
-        p.setId_tipinv(Integer.parseInt(tipinv));
-        p.setPrd_costo(Double.parseDouble(costo));
-        p.setPrd_precio(Double.parseDouble(precio));
-        p.setPrd_stkmin(Integer.parseInt(stkmin));
-        p.setPrd_stkmax(Integer.parseInt(stkmax));
-        p.setPrd_peso(Double.parseDouble(peso));
-        p.setPrd_estado(estado);
-        
+        p.setDescripcion(descripcion);
+        p.setForma(forma);
+        p.setMaterial(material);
+        p.setIdClase(idcla);
+
         ProductoModel model = new ProductoModel();
         List<Producto> data = model.listaProducto(p);
 
@@ -117,38 +104,47 @@ public class ProductoService {
         //request.getRequestDispatcher("/view/producto/listaProducto.jsp").forward(request, response);
         ViewResolve.show("producto/listaProducto.jsp", request, response);
 
+    */
     }
-
     
     public void actualiza(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String descripcion = request.getParameter("txtDescripcion");
-        String undmedida = request.getParameter("txtUndMedida");
-        String marca = request.getParameter("txtMarca");
-        String tipinv = request.getParameter("txtTipInv");
-        String costo = request.getParameter("txtCosto");
-        String precio = request.getParameter("txtprecio");
-        String stkmin = request.getParameter("txtstkmin");
-        String stkmax = request.getParameter("txtstkmax");
-        String peso = request.getParameter("txtpeso");
+        Double costo = Double.parseDouble(request.getParameter("txtcosto"));
+        Double preciov = Double.parseDouble(request.getParameter("txtprecio"));
+        int stkmin = Integer.parseInt(request.getParameter("txtstkmin"));
+        int stkmax = Integer.parseInt(request.getParameter("txtstkmax"));
+        Double peso = Double.parseDouble(request.getParameter("txtpeso"));
         String estado = request.getParameter("txtestado");
+        int id = Integer.parseInt(request.getParameter("id"));
+        /*
+        String descripcion = request.getParameter("txtDescripcion");
+        String forma = request.getParameter("txtForma");
+        String material = request.getParameter("txtMaterial");
+        String tamanio = request.getParameter("txtTamanio");
+        String color = request.getParameter("txtColor");
+        String clase = request.getParameter("sltClasificacion");
         int id = Integer.parseInt(request.getParameter("id"));
         
         descripcion=(descripcion!=null)?descripcion.toUpperCase():descripcion;
-        
+        forma=(forma!=null)?forma.toUpperCase():forma;
+        material=(material!=null)?material.toUpperCase():material;
+        tamanio=(tamanio!=null)?tamanio.toUpperCase():tamanio;
+        color=(color!=null)?color.toUpperCase():color;
+        */
         Producto p = new Producto();
-        p.setIdProducto(id);
-        p.setId_undmed(Integer.parseInt(undmedida));
-        p.setId_marca(Integer.parseInt(marca));
-        p.setId_tipinv(Integer.parseInt(tipinv));
-        p.setPrd_costo(Double.parseDouble(costo));
-        p.setPrd_precio(Double.parseDouble(precio));
-        p.setPrd_stkmin(Integer.parseInt(stkmin));
-        p.setPrd_stkmax(Integer.parseInt(stkmax));
-        p.setPrd_peso(Double.parseDouble(peso));
-        p.setPrd_estado(estado);
+        p.setProducto(id);
+        p.setDescripcion(descripcion);
+        p.setCosto(costo);
+        p.setPreciov(preciov);
+        p.setStkmin(stkmin);
+        p.setStkmax(stkmax);
+        p.setPeso(peso);
+        p.setEstado(estado);
+        //p.set(Integer.parseInt(clase));
 
         ProductoModel pm = new ProductoModel();
-        pm.actualizarProdcuto(p);
+        //pm.actualizarProdcuto(p);
+        pm.actualizaProducto(p);
 
         PrintWriter out = response.getWriter();
 
@@ -156,7 +152,8 @@ public class ProductoService {
         
 
     }
-     
+    
+    
     public void load(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String id = request.getParameter("id");
@@ -170,14 +167,14 @@ public class ProductoService {
 
         }
 
-        ClaseModel model = new ClaseModel();
-        List<Clase> data = model.listaClase();
+        //ClaseModel model = new ClaseModel();
+        //List<Clase> data = model.listaClase();
 
-        request.setAttribute("lsClase", data);
+        //request.setAttribute("lsClase", data);
 
         ViewResolve.show("producto/MProducto.jsp", request, response);
     }
-
+    
     public void elimina(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String id = request.getParameter("id");
@@ -189,6 +186,34 @@ public class ProductoService {
 
             out.println("{\"estado\":\"OK\",\"mensaje\":\"Se elimino correctamente\"}");
         }
-
+        //lista(request, response);
     }
+    /*
+    public void ubica(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String descripcion = request.getParameter("txtDescripcion");
+        Double costo = Double.parseDouble(request.getParameter("txtcosto"));
+        Double preciov = Double.parseDouble(request.getParameter("txtpreciov"));
+        int stkmin = Integer.parseInt(request.getParameter("txtstkmin"));
+        int stkmax = Integer.parseInt(request.getParameter("txtstkmax"));
+        Double peso = Double.parseDouble(request.getParameter("txtpeso"));
+        String estado = request.getParameter("txtestado");
+        
+        Producto p = new Producto();
+        p.setDescripcion(descripcion);
+        p.setCosto(costo);
+        p.setPreciov(preciov);
+        p.setStkmin(stkmin);
+        p.setStkmax(stkmax);
+        p.setPeso(peso);
+        p.setEstado(estado);
+        
+        ProductoModel model = new ProductoModel();
+        List<Producto> data = model.listaproductos();
+        
+        //Se almacena en memoria llamada request
+        request.setAttribute("data", data);
+        
+        //Se reenvia el request (con los datos) al jsp listaProveedor.jsp
+        ViewResolve.showMain("proveedor/listaProveedor.jsp", request, response);
+    }*/
 }

@@ -94,15 +94,15 @@ public class ProductoController extends HttpServlet {
         if (metodo==null) {
 
           productoService.index(request, response);
+          
         }else if (metodo.equals("registra")) {
             productoService.registra(request, response);
         } else if (metodo.equals("lista")) {
             productoService.lista(request, response);
-        } else if (metodo.equals("load")) {
-            productoService.load(request, response);
         } else if (metodo.equals("actualiza")) {
             productoService.actualiza(request, response);
-            
+        } else if (metodo.equals("load")) {
+            productoService.load(request, response);
         } else if (metodo.equals("elimina")) {
             productoService.elimina(request, response);
         }

@@ -7,13 +7,13 @@
 <% Producto dataProd = (Producto) request.getAttribute("dataProd");%>
 <form id="frmProducto" class="form-horizontal">
     <input type="hidden" name="metodo" value="<%= strMetodo %>" />
-    <input type="hidden" name="id" value="<%= (dataProd!=null?dataProd.getIdProducto():"") %>" />
+    <input type="hidden" name="id" value="<%= (dataProd!=null?dataProd.getProducto():"") %>" />
     <div class="box-body">
         <div class="form-group">
             <label class="col-sm-2 control-label">Código</label>
 
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="txtCodigo" name="txtCodigo" placeholder="" value="<%= (dataProd!=null?dataProd.getIdProducto():"") %>" readonly="">
+                <input type="text" class="form-control" id="txtCodigo" name="txtCodigo" placeholder="" value="<%= (dataProd!=null?dataProd.getProducto():"") %>" readonly="">
             </div>
         </div>
         <div class="form-group">
@@ -24,33 +24,48 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">Forma</label>
+            <label class="col-sm-2 control-label">Costo</label>
 
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="txtForma" name="txtForma" placeholder="Forma" value="<%= (dataProd!=null?dataProd.getForma():"")%>">
+                <input type="text" class="form-control" id="txtcosto" name="txtcosto" placeholder="costo" value="<%= (dataProd!=null?dataProd.getCosto():"")%>">
             </div>
         </div>
         <div class="form-group">
-            <label  class="col-sm-2 control-label">Material</label>
+            <label  class="col-sm-2 control-label">Precio</label>
 
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="txtMaterial" name="txtMaterial" placeholder="Material" value="<%= (dataProd!=null?dataProd.getMaterial():"")%>" >
+                <input type="text" class="form-control" id="txtprecio" name="txtprecio" placeholder="Precio" value="<%= (dataProd!=null?dataProd.getPreciov():"")%>" >
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">Tamaño</label>
+            <label class="col-sm-2 control-label">Stock minimo</label>
 
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="txtTamanio" name="txtTamanio" placeholder="Tamaño" value="<%= (dataProd!=null?dataProd.getTamanio():"")%>">
+                <input type="text" class="form-control" id="txtstkmin" name="txtstkmin" placeholder="Stock minimo" value="<%= (dataProd!=null?dataProd.getStkmin():"")%>">
             </div>
         </div>
         <div class="form-group">
-            <label  class="col-sm-2 control-label">Color</label>
+            <label  class="col-sm-2 control-label">Stock maximo</label>
 
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="txtColor" name="txtColor" placeholder="Color" value="<%= (dataProd!=null?dataProd.getColor():"")%>">
+                <input type="text" class="form-control" id="txtstkmax" name="txtstkmax" placeholder="Stock maximo" value="<%= (dataProd!=null?dataProd.getStkmax():"")%>">
             </div>
         </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">Peso</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="txtpeso" name="txtpeso" placeholder="Peso" value="<%= (dataProd!=null?dataProd.getPeso():"")%>">
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">Estado</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="txtestado" name="txtestado" placeholder="Estado" value="<%= (dataProd!=null?dataProd.getEstado():"")%>">
+            </div>
+        </div>
+        <%--
         <div class="form-group">
             <label  class="col-sm-2 control-label">Clasificación</label>
 
@@ -76,7 +91,7 @@
                 </select>
 
             </div>
-        </div>
+        </div>--%>
     </div>
     <!-- /.box-body -->
     <div class="box-footer">

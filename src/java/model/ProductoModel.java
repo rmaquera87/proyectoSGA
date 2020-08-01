@@ -28,23 +28,69 @@ public class ProductoModel {
             Connection conn;
             PreparedStatement pstm;
             conn = MysqlDBConexion.getConexion();
-            String sql = "insert into producto values(null,?,?,?,?,?,?)";
+            String sql = "insert into productos (id_producto,prd_descripcion,prd_costo,prd_precio,prd_stkmin,prd_stkmax,prd_peso,prd_estado)values(null,?,?,?,?,?,?,?)";
+            
+            
+            
+            
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, p.getDescripcion());
-
+            pstm.setDouble(2, p.getCosto());
+            pstm.setDouble(3, p.getPreciov());
+            pstm.setInt(4, p.getStkmin());
+            pstm.setInt(5, p.getStkmax());
+            pstm.setDouble(6, p.getPeso());
+            pstm.setString(7, p.getEstado());
+            salida = pstm.executeUpdate();
+            /*
             pstm.setString(2, p.getTamanio());
             pstm.setString(3, p.getColor());
             pstm.setString(4, p.getForma());
             pstm.setString(5, p.getMaterial());
             pstm.setInt(6, p.getIdClase());
             salida = pstm.executeUpdate();
-
+            */
         } catch (SQLException ex) {
             Logger.getLogger(ProductoModel.class.getName()).log(Level.SEVERE, null, ex);
         }
         return salida;
     }
-
+    //metodo listar
+    public ArrayList<Producto> listaproductos(){
+        ArrayList<Producto> prod = new ArrayList<>();
+        try{
+           PreparedStatement pstm;
+           Connection conn;
+           conn = MysqlDBConexion.getConexion();
+           ResultSet rs;
+           String sql = "select * from productos";
+           pstm = conn.prepareStatement(sql);
+           rs = pstm.executeQuery();
+           
+           Producto p;
+            while(rs.next()){
+                p = new Producto();
+                p.setProducto(rs.getInt("id_producto"));
+                p.setDescripcion(rs.getString("prd_descripcion"));
+                p.setUndmed(rs.getInt("id_undmed"));
+                p.setMarca(rs.getInt("id_marca"));
+                p.setTipinv(rs.getInt("id_tipinv"));
+                p.setCosto(rs.getDouble("prd_costo"));
+                p.setPreciov(rs.getDouble("prd_precio"));
+                p.setStkmin(rs.getInt("prd_stkmin"));
+                p.setStkmax(rs.getInt("prd_stkmax"));
+                p.setPeso(rs.getDouble("prd_peso"));
+                p.setEstado(rs.getString("prd_estado"));
+                prod.add(p);
+            }
+        }catch (SQLException ex) {
+            Logger.getLogger(ProveedorModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(prod);
+        return prod;
+    }
+    
+    /*
     public List<Producto> listaProducto(Producto p) {
 
         List<Producto> data = new ArrayList<>();
@@ -93,23 +139,25 @@ public class ProductoModel {
         return data;
 
     }
-
-    public int actualizarProdcuto(Producto p) {
+    */
+    //actualizar producto
+    public int actualizaProducto(Producto p) {
         int salida = -1;
         try {
             Connection conn;
             PreparedStatement pstm;
             conn = MysqlDBConexion.getConexion();
-            String sql = "update  producto set descripcion=?, forma=?, material=?,tamanio=?, color=?, id_clase=? where id_producto=?";
+            String sql = "update  productos set prd_descripcion=?, prd_costo=?, prd_precio=?, prd_stkmin=?, prd_stkmax=?, prd_peso=?,prd_estado=? where id_producto=?";
             pstm = conn.prepareStatement(sql);
 
             pstm.setString(1, p.getDescripcion());
-            pstm.setString(2, p.getForma());
-            pstm.setString(3, p.getMaterial());
-            pstm.setString(4, p.getTamanio());
-            pstm.setString(5, p.getColor());
-            pstm.setInt(6, p.getIdClase());
-            pstm.setInt(7, p.getIdProducto());
+            pstm.setDouble(2, p.getCosto());
+            pstm.setDouble(3, p.getPreciov());
+            pstm.setInt(4, p.getStkmin());
+            pstm.setInt(5, p.getStkmax());
+            pstm.setDouble(6, p.getPeso());
+            pstm.setString(7, p.getEstado());
+            pstm.setInt(8, p.getProducto());
             salida = pstm.executeUpdate();
 
         } catch (SQLException ex) {
@@ -117,7 +165,8 @@ public class ProductoModel {
         }
         return salida;
     }
-
+    
+    //buscar
     public Producto buscaProducto(int id) {
 
         Producto p = null;
@@ -126,20 +175,21 @@ public class ProductoModel {
             PreparedStatement pstm;
             ResultSet rs;
             conn = MysqlDBConexion.getConexion();
-            String sql = "select * from producto where id_producto=?";
+            String sql = "select * from productos where id_producto=?";
             pstm = conn.prepareStatement(sql);
             pstm.setInt(1, id);
             rs = pstm.executeQuery();
 
             if (rs.next()) {
                 p = new Producto();
-                p.setIdProducto(rs.getInt("id_producto"));
-                p.setDescripcion(rs.getString("descripcion"));
-                p.setForma(rs.getString("forma"));
-                p.setMaterial(rs.getString("material"));
-                p.setTamanio(rs.getString("tamanio"));
-                p.setColor(rs.getString("color"));
-                p.setIdClase(rs.getInt("id_clase"));
+                p.setProducto(rs.getInt("id_producto"));
+                p.setDescripcion(rs.getString("prd_descripcion"));
+                p.setCosto(rs.getDouble("prd_costo"));
+                p.setPreciov(rs.getDouble("prd_precio"));
+                p.setStkmin(rs.getInt("prd_stkmin"));
+                p.setStkmax(rs.getInt("prd_stkmax"));
+                p.setPeso(rs.getDouble("prd_peso"));
+                p.setEstado(rs.getString("prd_estado"));
 
             }
 
@@ -149,14 +199,14 @@ public class ProductoModel {
         return p;
 
     }
-
+    //eliminar
     public int eliminarProducto(int id) {
         int salida = -1;
         try {
             Connection conn;
             PreparedStatement pstm;
             conn = MysqlDBConexion.getConexion();
-            String sql = "delete from producto where id_producto=?";
+            String sql = "delete from productos where id_producto=?";
             pstm = conn.prepareStatement(sql);
             pstm.setInt(1, id);
             salida = pstm.executeUpdate();
